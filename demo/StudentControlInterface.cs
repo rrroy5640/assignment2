@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace demo
 {
-    internal interface StudentControl
+    internal interface StudentControlInterface
     {
         void addStudent();
         void deleteStudent();
