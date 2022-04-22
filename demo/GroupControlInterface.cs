@@ -8,9 +8,9 @@ namespace demo
 {
     internal interface GroupControlInterface
     {
-        void addGroup(string name, int id);
-        void deleteGroup(string name, int id);
-        void updateGroup(string name, int id);
-        List<Group> listGroup();
+        void AddGroup(string name, int id);
+        void DeleteGroup(string name, int id);
+        void UpdateGroup(string name, int id);
+        List<Group> ListGroup();
     }
 }

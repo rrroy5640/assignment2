@@ -12,27 +12,27 @@ namespace demo
         public Agency conn = null;
 
        
-        public void addGroup(string name, int id)
+        public void AddGroup(string name, int id)
         {
             Group group = new Group { GroupName = name, GroupID = id };
-            Agency.addGroup(group);
+            Agency.AddGroup(group);
         }
 
-        public void deleteGroup(string name, int id)
+        public void DeleteGroup(string name, int id)
         {
             Group group = new Group { GroupName = name, GroupID = id };
-            Agency.deleteGroup(group);
+            Agency.DeleteGroup(group);
         }
 
-        public List<Group> listGroup()
+        public List<Group> ListGroup()
         {
             return Agency.ListGroups();
         }
 
-        public void updateGroup(string name, int id)
+        public void UpdateGroup(string name, int id)
         {
             Group group = new Group { GroupName = name, GroupID = id };
-            Agency.updateGroup(group);
+            Agency.UpdateGroup(group);
         }
     }
 }

@@ -63,7 +63,7 @@ namespace demo
             return groups;
         }
 
-        public static void addGroup (Group group)
+        public static void AddGroup (Group group)
         {
             MySqlConnection conn = GetConnection();
 
@@ -87,7 +87,7 @@ namespace demo
             }
         }
 
-        public static void updateGroup (Group group)
+        public static void UpdateGroup (Group group)
         {
             MySqlConnection conn = GetConnection();
 
@@ -111,7 +111,7 @@ namespace demo
             }
         }
 
-        public static void deleteGroup (Group group)
+        public static void DeleteGroup (Group group)
         {
             MySqlConnection conn = GetConnection();
 
