@@ -8,14 +8,10 @@ namespace demo
 {
     internal class Group
     {
-        private string groupName;
-        private int groupID;
+        private string groupName { set; get; }
+        private int groupID { set; get; }
 
-        public Group(string groupName, int groupID)
-        {
-            this.groupName = groupName;
-            this.groupID = groupID;
-        }
+       
 
         public string GroupName { get => groupName; set => groupName = value; }
         public int GroupID { get => groupID; set => groupID = value; }

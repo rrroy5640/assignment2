@@ -101,10 +101,11 @@
     <Compile Include="Class.cs" />
     <Compile Include="ClassControlInterface.cs" />
     <Compile Include="Group.cs" />
+    <Compile Include="GroupControl.cs" />
     <Compile Include="GroupControlInterface.cs" />
     <Compile Include="Meeting.cs" />
     <Compile Include="MeetingControlInterface.cs" />
-    <Compile Include="MySqlConnection.cs" />
+    <Compile Include="Agency.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentControlInterface.cs" />
     <Compile Include="StudentManagement.xaml.cs">

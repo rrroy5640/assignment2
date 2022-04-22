@@ -31,7 +31,9 @@ namespace demo
 
         private void STUDENT_MANAGEMENT_Click(object sender, RoutedEventArgs e)
         {
-            
+            Agency.deleteGroup(new Group { GroupID = 4, GroupName = "gygkgk" });
         }
+
+       
     }
 }
