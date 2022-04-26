@@ -10,25 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
-
+using System.Collections.ObjectModel;
 
 namespace demo
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GroupManagement.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GroupManagement : Window
     {
-
-        
-        public MainWindow()
+        //GroupControl gControl = new GroupControl();
+        //private const string GROUP_LIST_KEY = "groupList";
+        public GroupManagement()
         {
             InitializeComponent();
+            //gControl = (GroupControl)(Application.Current.FindResource(GROUP_LIST_KEY) as ObjectDataProvider).ObjectInstance;
+
         }
-
-
     }
 }

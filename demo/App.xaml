@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:demo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:GroupControl x:Key="groupControl"></local:GroupControl>
+        <ObjectDataProvider x:Key="groupList"
+                            ObjectInstance="groupControl"
+                            MethodName="GetViewableList">
+        </ObjectDataProvider>
     </Application.Resources>
 </Application>

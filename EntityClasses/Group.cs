@@ -15,10 +15,5 @@ namespace demo
 
         public string GroupName { get => groupName; set => groupName = value; }
         public int GroupID { get => groupID; set => groupID = value; }
-
-        public override string ToString()
-        {
-            return GroupName + " " + GroupID;
-        }
     }
 }

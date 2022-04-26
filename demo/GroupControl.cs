@@ -1,17 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace demo
 {
     internal class GroupControl : GroupControlInterface
     {
-        public Agency conn = null;
+        private List<Group> groups;
+        public List<Group> Groups { get { return groups; } set { } }
+        private ObservableCollection<Group> viewableGroups;
+        public ObservableCollection<Group> ViewableGroups { get { return viewableGroups; } set { } }
 
-       
+
+        public GroupControl()
+        {
+            groups = Agency.ListGroup();
+            viewableGroups = new ObservableCollection<Group>(groups);
+        }
+
+
+        public ObservableCollection<Group> GetViewableList()
+        {
+            return ViewableGroups;
+        }
+
         public void AddGroup(string name, int id)
         {
             Group group = new Group { GroupName = name, GroupID = id };
@@ -24,10 +35,11 @@ namespace demo
             Agency.DeleteGroup(group);
         }
 
-        public List<Group> ListGroup()
+        public List<Group> ListGroups()
         {
-            return Agency.ListGroups();
+            return Agency.ListGroup();
         }
+
 
         public void UpdateGroup(string name, int id)
         {

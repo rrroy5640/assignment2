@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using System.Collections.ObjectModel;
 
 namespace demo
 {
-    internal class Agency
+    public class Agency
     {
         private const string db = "gmis";
         private const string user = "kit206g4";
@@ -32,7 +31,7 @@ namespace demo
             return conn;
         }
 
-        public static List<Group> ListGroup()
+        public static List<Group> ListGroups()
         {
             List<Group> groups = new List<Group>();
             MySqlConnection conn = GetConnection();
@@ -52,7 +51,7 @@ namespace demo
 
             catch (MySqlException e)
             {
-                throw e;
+                
             }
             finally
             {
@@ -75,8 +74,13 @@ namespace demo
                 cmd.Parameters.AddWithValue("id", group.GroupID);
                 cmd.Parameters.AddWithValue("name", group.GroupName);
                 cmd.ExecuteNonQuery();
+
             }
-            
+            catch (MySqlException e)
+            {
+
+            }
+
             finally
             {
                 conn.Close();
@@ -96,7 +100,10 @@ namespace demo
                 cmd.ExecuteNonQuery();
 
             }
-            
+            catch (MySqlException e)
+            {
+
+            }
 
             finally
             {
@@ -116,7 +123,10 @@ namespace demo
                 cmd.ExecuteNonQuery();
 
             }
-            
+            catch (MySqlException e)
+            {
+
+            }
 
             finally
             {
