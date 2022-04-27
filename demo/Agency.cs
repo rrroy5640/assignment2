@@ -32,37 +32,37 @@ namespace demo
             return conn;
         }
 
-        public static List<Group> ListGroup()
-        {
-            List<Group> groups = new List<Group>();
-            MySqlConnection conn = GetConnection();
-            MySqlDataReader rdr = null;
+        //public static List<Group> ListGroup()
+        //{
+        //    List<Group> groups = new List<Group>();
+        //    MySqlConnection conn = GetConnection();
+        //    MySqlDataReader rdr = null;
 
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select group_id, group_name from studentGroup", conn);
-                rdr = cmd.ExecuteReader();
+        //    try
+        //    {
+        //        conn.Open();
+        //        MySqlCommand cmd = new MySqlCommand("select group_id, group_name from studentGroup", conn);
+        //        rdr = cmd.ExecuteReader();
 
-                while (rdr.Read())
-                {
-                    groups.Add(new Group { GroupName = rdr.GetString(1), GroupID = rdr.GetInt32(0) });
-                }
-            }
+        //        while (rdr.Read())
+        //        {
+        //            groups.Add(new Group { GroupName = rdr.GetString(1), GroupID = rdr.GetInt32(0) });
+        //        }
+        //    }
 
-            catch (MySqlException e)
-            {
-                throw e;
-            }
-            finally
-            {
-                if (rdr != null)
-                rdr.Close();
-                if (conn != null)
-                conn.Close();
-            }
-            return groups;
-        }
+        //    catch (MySqlException e)
+        //    {
+        //        throw e;
+        //    }
+        //    finally
+        //    {
+        //        if (rdr != null)
+        //        rdr.Close();
+        //        if (conn != null)
+        //        conn.Close();
+        //    }
+        //    return groups;
+        //}
 
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
@@ -127,35 +127,37 @@ namespace demo
             return students;
         }
 
-        public static void AddGroup (Group group)
-        {
-            MySqlConnection conn = GetConnection();
+        //public static void AddGroup (Group group)
+        //{
+        //    MySqlConnection conn = GetConnection();
 
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into studentGroup (group_id, group_name) values (?id, ?name)", conn);
-                cmd.Parameters.AddWithValue("id", group.GroupID);
-                cmd.Parameters.AddWithValue("name", group.GroupName);
-                cmd.ExecuteNonQuery();
-            }
+        //    try
+        //    {
+        //        conn.Open();
+        //        MySqlCommand cmd = new MySqlCommand("insert into studentGroup (group_id, group_name) values (?id, ?name)", conn);
+        //        cmd.Parameters.AddWithValue("id", group.GroupID);
+        //        cmd.Parameters.AddWithValue("name", group.GroupName);
+        //        cmd.ExecuteNonQuery();
+        //    }
             
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
 
         public static void AddStudent()
         {
             MySqlConnection conn = GetConnection();
+            Random rd = new Random();
+            int id = rd.Next(100000, 999999);
 
             try
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("insert into student (student_id, given_name, family_name, group_id, title, campus, phone, email, photo, category) " +
-                    "values ( 0, '', '', null, null, '', null, null, null, null)", conn);
-                //cmd.Parameters.AddWithValue("id", student.Id);
+                    "values ( ?id, '', '', null, null, '', null, null, null, null)", conn);
+                cmd.Parameters.AddWithValue("id", id);
                 //cmd.Parameters.AddWithValue("givenName",student.FirstName);
                 //cmd.Parameters.AddWithValue("familyName", student.LastName);
                 //cmd.Parameters.AddWithValue("groupID", student.GroupId);
@@ -202,46 +204,46 @@ namespace demo
             }
         }
 
-        public static void UpdateGroup(Group group)
-        {
-            MySqlConnection conn = GetConnection();
+        //public static void UpdateGroup(Group group)
+        //{
+        //    MySqlConnection conn = GetConnection();
 
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("update studentGroup set group_name = ?name where group_id = ?id", conn);
-                cmd.Parameters.AddWithValue("id", group.GroupID);
-                cmd.Parameters.AddWithValue("name", group.GroupName);
-                cmd.ExecuteNonQuery();
+        //    try
+        //    {
+        //        conn.Open();
+        //        MySqlCommand cmd = new MySqlCommand("update studentGroup set group_name = ?name where group_id = ?id", conn);
+        //        cmd.Parameters.AddWithValue("id", group.GroupID);
+        //        cmd.Parameters.AddWithValue("name", group.GroupName);
+        //        cmd.ExecuteNonQuery();
 
-            }
+        //    }
 
 
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
 
-        public static void DeleteGroup (Group group)
-        {
-            MySqlConnection conn = GetConnection();
+        //public static void DeleteGroup (Group group)
+        //{
+        //    MySqlConnection conn = GetConnection();
 
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("delete from studentGroup where group_id = ?id", conn);
-                cmd.Parameters.AddWithValue("id", group.GroupID);
-                cmd.ExecuteNonQuery();
+        //    try
+        //    {
+        //        conn.Open();
+        //        MySqlCommand cmd = new MySqlCommand("delete from studentGroup where group_id = ?id", conn);
+        //        cmd.Parameters.AddWithValue("id", group.GroupID);
+        //        cmd.ExecuteNonQuery();
 
-            }
+        //    }
             
 
-            finally
-            {
-                conn.Close();
-            }
-        }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
 
         public static void DeleteStudent(int id)
         {
