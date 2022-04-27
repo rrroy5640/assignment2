@@ -64,6 +64,69 @@ namespace demo
             return groups;
         }
 
+        public static string SafeGetString(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetString(colIndex);
+            return string.Empty;
+        }
+
+        //public static string SafeGetStringCampus(MySqlDataReader reader, int colIndex)
+        //{
+        //    if (!reader.IsDBNull(colIndex))
+        //        return reader.GetString(colIndex);
+        //    return "nowhere";
+        //}
+        //public static string SafeGetStringCategory(MySqlDataReader reader, int colIndex)
+        //{
+        //    if (!reader.IsDBNull(colIndex))
+        //        return reader.GetString(colIndex);
+        //    return "nothing";
+        //}
+
+        public static int SafeGetInt(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetInt32(colIndex);
+            return 0;
+        }
+
+        public static List<Student> ListStudent()
+        {
+            List<Student> students = new List<Student>();
+            MySqlConnection conn = GetConnection();
+            MySqlDataReader rdr = null;
+
+
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("select student_id, given_name, family_name, group_id, title, campus, phone, email, category from student", conn);
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    students.Add(new Student(SafeGetString(rdr, 1), SafeGetString(rdr, 2), SafeGetInt(rdr,0), SafeGetInt(rdr, 3),
+                        SafeGetString(rdr, 4), SafeGetString(rdr, 6), SafeGetString(rdr, 7), SafeGetString(rdr, 5),
+                        SafeGetString(rdr, 8)));
+                }
+            }
+
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (rdr != null)
+                    rdr.Close();
+                if (conn != null)
+                    conn.Close();
+            }
+            return students;
+        }
+
         public static void AddGroup (Group group)
         {
             MySqlConnection conn = GetConnection();
@@ -83,7 +146,63 @@ namespace demo
             }
         }
 
-        public static void UpdateGroup (Group group)
+        public static void AddStudent(Student student)
+        {
+            MySqlConnection conn = GetConnection();
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("insert into student (student_id, given_name, family_nama, group_id, title, campus, phone, email, category) " +
+                    "values (?id, ?givenName, ?familyName, ?groupID, ?title, ?campus, ?phone, ?email, ?category)", conn);
+                cmd.Parameters.AddWithValue("id", student.Id);
+                cmd.Parameters.AddWithValue("givenName",student.FirstName);
+                cmd.Parameters.AddWithValue("familyName", student.LastName);
+                cmd.Parameters.AddWithValue("groupID", student.GroupId);
+                cmd.Parameters.AddWithValue("title", student.Title);
+                cmd.Parameters.AddWithValue("campus", student.Campus1);
+                cmd.Parameters.AddWithValue("phone", student.PhoneNumber);
+                cmd.Parameters.AddWithValue("email", student.Email);
+                cmd.Parameters.AddWithValue("category", student.Category1);
+                cmd.ExecuteNonQuery();
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        public static void UpdateStudent (Student student)
+        {
+            MySqlConnection conn = GetConnection();
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("update student set given_name = ?givenName, family_name = ?familyName, group_id = ?groupID, title = ?title, campus = ?campus, phone = ?phone, email = ?email, category = ?category where student_id = ?id", conn);
+                cmd.Parameters.AddWithValue("id", student.Id);
+                cmd.Parameters.AddWithValue("givenName", student.FirstName);
+                cmd.Parameters.AddWithValue("familyName", student.LastName);
+                cmd.Parameters.AddWithValue("groupID", student.GroupId);
+                cmd.Parameters.AddWithValue("title", student.Title);
+                cmd.Parameters.AddWithValue("campus", student.Campus1);
+                cmd.Parameters.AddWithValue("phone", student.PhoneNumber);
+                cmd.Parameters.AddWithValue("email", student.Email);
+                cmd.Parameters.AddWithValue("category", student.Category1);
+                cmd.ExecuteNonQuery();
+
+            }
+            
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public static void UpdateGroup(Group group)
         {
             MySqlConnection conn = GetConnection();
 
@@ -96,7 +215,7 @@ namespace demo
                 cmd.ExecuteNonQuery();
 
             }
-            
+
 
             finally
             {
@@ -123,6 +242,26 @@ namespace demo
                 conn.Close();
             }
         }
-        
+
+        public static void DeleteStudent(Student student)
+        {
+            MySqlConnection conn = GetConnection();
+
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("delete from student where student_id = ?id", conn);
+                cmd.Parameters.AddWithValue("id", student.Id);
+                cmd.ExecuteNonQuery();
+
+            }
+
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }

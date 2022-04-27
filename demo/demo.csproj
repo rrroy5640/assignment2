@@ -103,24 +103,18 @@
     <Compile Include="Group.cs" />
     <Compile Include="GroupControl.cs" />
     <Compile Include="GroupControlInterface.cs" />
-    <Compile Include="GroupManagement.xaml.cs">
-      <DependentUpon>GroupManagement.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Meeting.cs" />
     <Compile Include="MeetingControlInterface.cs" />
     <Compile Include="Agency.cs" />
-    <Compile Include="StudentProfileView.xaml.cs">
-      <DependentUpon>StudentProfileView.xaml</DependentUpon>
+    <Compile Include="ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+    <Compile Include="StudentControl.cs" />
     <Compile Include="StudentControlInterface.cs" />
     <Compile Include="StudentManagement.xaml.cs">
       <DependentUpon>StudentManagement.xaml</DependentUpon>
     </Compile>
-    <Page Include="GroupManagement.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,7 +127,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StudentProfileView.xaml">
+    <Page Include="ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

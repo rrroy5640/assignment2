@@ -18,7 +18,7 @@ namespace demo
 
         public override string ToString()
         {
-            return GroupName + " " + GroupID;
+            return GroupName + "\t " + GroupID;
         }
     }
 }

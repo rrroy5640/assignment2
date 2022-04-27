@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace demo
@@ -18,7 +17,7 @@ namespace demo
     /// <summary>
     /// Interaction logic for StudentManagement.xaml
     /// </summary>
-    public partial class StudentManagement : Page
+    public partial class StudentManagement : Window
     {
         public StudentManagement()
         {

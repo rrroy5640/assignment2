@@ -5,9 +5,13 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <local:GroupControl x:Key="groupControl"></local:GroupControl>
+        <local:StudentControl x:Key="studentControl"></local:StudentControl>
         <ObjectDataProvider x:Key="groupList"
-                            ObjectInstance="groupControl"
+                            ObjectInstance="{StaticResource groupControl}"
                             MethodName="GetViewableList">
         </ObjectDataProvider>
+        <ObjectDataProvider x:Key="studentList"
+                            ObjectInstance="{StaticResource studentControl}"
+                            MethodName="GetViewableList"></ObjectDataProvider>
     </Application.Resources>
 </Application>
