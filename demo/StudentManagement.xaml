@@ -5,12 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:demo"
         mc:Ignorable="d"
-        Title="StudentManagement" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="65*"/>
-            <RowDefinition Height="369*"/>
-        </Grid.RowDefinitions>
+        Title="StudentManagement" Height="600" Width="1200">
+    <Grid x:Name="grid1" Margin="0,0,0,0">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="STUDENT MANAGEMENT INFORMATION SYSTEM" VerticalAlignment="Top" Height="60" Width="771" FontSize="36"/>
+        <ListBox x:Name="student_list" ItemsSource="{Binding Source={StaticResource studentList}}"  Margin="0,100,912,0" FontSize="18" SelectionChanged="student_list_SelectionChanged"/>
+        <StackPanel x:Name="FirstNamePanel" HorizontalAlignment="Left" Height="58" Margin="373,100,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="First Name:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="FirstName" TextWrapping="Wrap" Text="{Binding Path=FirstName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="LastNamePanel" HorizontalAlignment="Left" Height="58" Margin="373,163,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Last Name:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="LastName" TextWrapping="Wrap" Text="{Binding Path=LastName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="IdPanel" HorizontalAlignment="Left" Height="58" Margin="373,221,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="ID:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="ID" TextWrapping="Wrap" Text="{Binding Path=Id}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="GroupIdPanel" HorizontalAlignment="Left" Height="58" Margin="373,284,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="GroupID:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="GroupID" TextWrapping="Wrap" Text="{Binding Path=GroupId}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="TitlePanel" HorizontalAlignment="Left" Height="58" Margin="373,342,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Title:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="Title" TextWrapping="Wrap" Text="{Binding Path=Title}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
 
     </Grid>
 </Window>

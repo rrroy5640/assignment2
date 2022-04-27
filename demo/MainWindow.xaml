@@ -4,10 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1200">
+        Title="MainWindow" Height="600" Width="1000">
     <Grid x:Name="grid1" Margin="0,0,0,0">
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="GROUP MANAGEMENT INFORMATION SYSTEM" VerticalAlignment="Top" Height="60" Width="771" FontSize="36"/>
-        <ListBox x:Name="student_list" ItemsSource="{Binding Source={StaticResource studentList}}"  Margin="0,100,400,0" FontSize="18" Width="800"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,82,0,0" TextWrapping="Wrap" Text="GROUP MANAGEMENT INFORMATION SYSTEM" VerticalAlignment="Top" Height="60" Width="772" FontSize="36"/>
+        <Button Name="StudentManagement" Content="Student Management" FontSize="24"   Height="100" Width="240   "  Click="StudentManagement_Click" Margin="187,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Name="GroupManagement" Content="Group Management" FontSize="24"   Height="100" Width="240" Margin="545,200,155,254" HorizontalAlignment="Right" VerticalAlignment="Top"  ></Button>
+        <Button Name="CLassManagement" Content="Class Management" FontSize="24"   Height="100" Width="240" Margin="187,0,0,89" VerticalAlignment="Bottom" HorizontalAlignment="Left" ></Button>
+        <Button Name="MeetingManagement" Content="Meeting Management" FontSize="24"   Height="100" Width="240" Margin="545,365,155,89" VerticalAlignment="Bottom" HorizontalAlignment="Right" ></Button>
 
     </Grid>
 </Window>
