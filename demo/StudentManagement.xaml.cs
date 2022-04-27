@@ -37,8 +37,39 @@ namespace demo
                 IdPanel.DataContext = e.AddedItems[0];
                 GroupIdPanel.DataContext = e.AddedItems[0];
                 TitlePanel.DataContext = e.AddedItems[0];
-
+                PhonePanel.DataContext = e.AddedItems[0];
+                EmailPanel.DataContext = e.AddedItems[0];
+                CampusPanel.DataContext = e.AddedItems[0];
+                CategoryPanel.DataContext = e.AddedItems[0];
             }
+        }
+
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            studentControl.AddStudent();
+            InitializeComponent();
+        }
+
+        private void DeleteStudent_Click(object sender, RoutedEventArgs e)
+        {
+            int id;
+            id = (int)int.Parse(IDText.Text);
+            studentControl.DeleteStudent(id);
+            InitializeComponent();
+        }
+
+        private void UpdateStudent_Click(object sender, RoutedEventArgs e)
+        {
+            string givenName = FirstNameText.Text;
+            string familyName = LastNameText.Text;
+            int id = int.Parse(IDText.Text);
+            int groupID = int.Parse(GroupIDText.Text);
+            string title = TitleText.Text;
+            string campus = CampusText.Text;
+            string phone = PhoneText.Text;
+            string email = EmailText.Text;
+            string category = CategoryText.Text;
+            studentControl.UpdateStudent(givenName, familyName, id, groupID, title, campus, phone, email, category);
         }
     }
 }

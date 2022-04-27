@@ -11,24 +11,43 @@
         <ListBox x:Name="student_list" ItemsSource="{Binding Source={StaticResource studentList}}"  Margin="0,100,912,0" FontSize="18" SelectionChanged="student_list_SelectionChanged"/>
         <StackPanel x:Name="FirstNamePanel" HorizontalAlignment="Left" Height="58" Margin="373,100,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
             <Label Content="First Name:" FontSize="18" VerticalAlignment="Center" Width="100"/>
-            <TextBox x:Name="FirstName" TextWrapping="Wrap" Text="{Binding Path=FirstName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="FirstNameText" TextWrapping="Wrap" Text="{Binding Path=FirstName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel x:Name="LastNamePanel" HorizontalAlignment="Left" Height="58" Margin="373,163,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
             <Label Content="Last Name:" FontSize="18" VerticalAlignment="Center" Width="100"/>
-            <TextBox x:Name="LastName" TextWrapping="Wrap" Text="{Binding Path=LastName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="LastNameText" TextWrapping="Wrap" Text="{Binding Path=LastName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel x:Name="IdPanel" HorizontalAlignment="Left" Height="58" Margin="373,221,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
             <Label Content="ID:" FontSize="18" VerticalAlignment="Center" Width="100"/>
-            <TextBox x:Name="ID" TextWrapping="Wrap" Text="{Binding Path=Id}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="IDText" TextWrapping="Wrap" Text="{Binding Path=Id}" Width="180" FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel x:Name="GroupIdPanel" HorizontalAlignment="Left" Height="58" Margin="373,284,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
             <Label Content="GroupID:" FontSize="18" VerticalAlignment="Center" Width="100"/>
-            <TextBox x:Name="GroupID" TextWrapping="Wrap" Text="{Binding Path=GroupId}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="GroupIDText" TextWrapping="Wrap" Text="{Binding Path=GroupId}" Width="180" FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel x:Name="TitlePanel" HorizontalAlignment="Left" Height="58" Margin="373,342,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
             <Label Content="Title:" FontSize="18" VerticalAlignment="Center" Width="100"/>
-            <TextBox x:Name="Title" TextWrapping="Wrap" Text="{Binding Path=Title}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="TitleText" TextWrapping="Wrap" Text="{Binding Path=Title}" Width="180" FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
+        <StackPanel x:Name="PhonePanel" HorizontalAlignment="Left" Height="58" Margin="723,100,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Phone:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="PhoneText" TextWrapping="Wrap" Text="{Binding Path=PhoneNumber}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="EmailPanel" HorizontalAlignment="Left" Height="58" Margin="723,163,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="email:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="EmailText" TextWrapping="Wrap" Text="{Binding Path=Email}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="CampusPanel" HorizontalAlignment="Left" Height="58" Margin="723,221,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Campus:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="CampusText" TextWrapping="Wrap" Text="{Binding Path=Campus1}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="CategoryPanel" HorizontalAlignment="Left" Height="58" Margin="723,284,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Category:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="CategoryText" TextWrapping="Wrap" Text="{Binding Path=Category1}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button x:Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="377,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="AddStudent_Click"/>
+        <Button x:Name="UpdateStudent" Content="Update Info" HorizontalAlignment="Left" Margin="631,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="UpdateStudent_Click"/>
+        <Button x:Name="DeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Margin="877,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="DeleteStudent_Click"/>
 
     </Grid>
 </Window>

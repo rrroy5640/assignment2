@@ -146,24 +146,24 @@ namespace demo
             }
         }
 
-        public static void AddStudent(Student student)
+        public static void AddStudent()
         {
             MySqlConnection conn = GetConnection();
 
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into student (student_id, given_name, family_nama, group_id, title, campus, phone, email, category) " +
-                    "values (?id, ?givenName, ?familyName, ?groupID, ?title, ?campus, ?phone, ?email, ?category)", conn);
-                cmd.Parameters.AddWithValue("id", student.Id);
-                cmd.Parameters.AddWithValue("givenName",student.FirstName);
-                cmd.Parameters.AddWithValue("familyName", student.LastName);
-                cmd.Parameters.AddWithValue("groupID", student.GroupId);
-                cmd.Parameters.AddWithValue("title", student.Title);
-                cmd.Parameters.AddWithValue("campus", student.Campus1);
-                cmd.Parameters.AddWithValue("phone", student.PhoneNumber);
-                cmd.Parameters.AddWithValue("email", student.Email);
-                cmd.Parameters.AddWithValue("category", student.Category1);
+                MySqlCommand cmd = new MySqlCommand("insert into student (student_id, given_name, family_name, group_id, title, campus, phone, email, photo, category) " +
+                    "values ( 0, '', '', null, null, '', null, null, null, null)", conn);
+                //cmd.Parameters.AddWithValue("id", student.Id);
+                //cmd.Parameters.AddWithValue("givenName",student.FirstName);
+                //cmd.Parameters.AddWithValue("familyName", student.LastName);
+                //cmd.Parameters.AddWithValue("groupID", student.GroupId);
+                //cmd.Parameters.AddWithValue("title", student.Title);
+                //cmd.Parameters.AddWithValue("campus", student.Campus1);
+                //cmd.Parameters.AddWithValue("phone", student.PhoneNumber);
+                //cmd.Parameters.AddWithValue("email", student.Email);
+                //cmd.Parameters.AddWithValue("category", student.Category1);
                 cmd.ExecuteNonQuery();
             }
 
@@ -243,7 +243,7 @@ namespace demo
             }
         }
 
-        public static void DeleteStudent(Student student)
+        public static void DeleteStudent(int id)
         {
             MySqlConnection conn = GetConnection();
 
@@ -251,7 +251,7 @@ namespace demo
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("delete from student where student_id = ?id", conn);
-                cmd.Parameters.AddWithValue("id", student.Id);
+                cmd.Parameters.AddWithValue("id", id);
                 cmd.ExecuteNonQuery();
 
             }
