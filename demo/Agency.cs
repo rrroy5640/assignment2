@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace demo
 {
+    //this is the adapter class for student
     internal class Agency
     {
         private const string db = "gmis";
@@ -15,7 +16,7 @@ namespace demo
         private const string pass = "group4";
         private const string server = "alacritas.cis.utas.edu.au";
 
-        private static MySqlConnection conn = null;//instantiate a connection object
+        private static MySqlConnection conn = null;
 
         public static T ParseEnum<T>(string value)
         {
@@ -64,6 +65,7 @@ namespace demo
         //    return groups;
         //}
 
+        //this method is to return a empty string if the reader reads a null value from database
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))
@@ -84,6 +86,7 @@ namespace demo
         //    return "nothing";
         //}
 
+        //this method is to return 0 if the reader reads a null value from database
         public static int SafeGetInt(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))
@@ -146,11 +149,13 @@ namespace demo
         //    }
         //}
 
+
+        //this method is to add a empty student object in database with a random id
         public static void AddStudent()
         {
             MySqlConnection conn = GetConnection();
             Random rd = new Random();
-            int id = rd.Next(100000, 999999);
+            int id = rd.Next(100000, 999999); //generate a random number for id, this could cause exception if this id already exist in database
 
             try
             {
@@ -175,7 +180,7 @@ namespace demo
             }
         }
 
-
+        //this method is to update the student info where id is assigned
         public static void UpdateStudent (Student student)
         {
             MySqlConnection conn = GetConnection();
@@ -194,10 +199,8 @@ namespace demo
                 cmd.Parameters.AddWithValue("email", student.Email);
                 cmd.Parameters.AddWithValue("category", student.Category1);
                 cmd.ExecuteNonQuery();
-
             }
-            
-
+  
             finally
             {
                 conn.Close();
@@ -245,6 +248,7 @@ namespace demo
         //    }
         //}
 
+        //this method is to delete a student object in database with assigned id
         public static void DeleteStudent(int id)
         {
             MySqlConnection conn = GetConnection();
@@ -255,7 +259,6 @@ namespace demo
                 MySqlCommand cmd = new MySqlCommand("delete from student where student_id = ?id", conn);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.ExecuteNonQuery();
-
             }
 
 

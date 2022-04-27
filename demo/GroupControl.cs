@@ -5,18 +5,18 @@ namespace demo
 {
     internal class GroupControl 
     {
-        private List<Group> groups;
-        public List<Group> Groups { get { return groups; } set { } }
-        private ObservableCollection<Group> viewableGroups;
-        public ObservableCollection<Group> ViewableGroups { get { return viewableGroups; } set { } }
+        //private List<Group> groups;
+        //public List<Group> Groups { get { return groups; } set { } }
+        //private ObservableCollection<Group> viewableGroups;
+        //public ObservableCollection<Group> ViewableGroups { get { return viewableGroups; } set { } }
 
 
 
 
-        public ObservableCollection<Group> GetViewableList()
-        {
-            return ViewableGroups;
-        }
+        //public ObservableCollection<Group> GetViewableList()
+        //{
+        //    return ViewableGroups;
+        //}
 
         //public void AddGroup(string name, int id)
         //{
