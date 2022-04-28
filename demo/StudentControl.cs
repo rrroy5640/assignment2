@@ -28,6 +28,7 @@ namespace demo
             //Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
             Agency.AddStudent();
             students = ListStudents();
+            viewableStudents = new ObservableCollection<Student>(students);
         }
 
         public void DeleteStudent(int id)
@@ -35,7 +36,7 @@ namespace demo
             //Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
             Agency.DeleteStudent(id);
             students = ListStudents();
-
+            viewableStudents = new ObservableCollection<Student>(students);
         }
 
         public List<Student> ListStudents()
@@ -49,6 +50,7 @@ namespace demo
             Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
             Agency.UpdateStudent(student);
             students = ListStudents();
+            viewableStudents = new ObservableCollection<Student>(students);
         }
     }
 }

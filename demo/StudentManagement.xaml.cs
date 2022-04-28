@@ -69,10 +69,10 @@ namespace demo
             studentControl.DeleteStudent(id);
             student_list.ItemsSource = null;
             student_list.ItemsSource = studentControl.GetViewableList();
-            StudentManagement newWindow = new StudentManagement();
-            newWindow.student_list.ItemsSource = studentControl.GetViewableList();
-            newWindow.Show();
-            this.Close();
+            //StudentManagement newWindow = new StudentManagement();
+            //newWindow.student_list.ItemsSource = studentControl.GetViewableList();
+            //newWindow.Show();
+            //this.Close();
         }
 
         private void UpdateStudent_Click(object sender, RoutedEventArgs e)
@@ -89,10 +89,10 @@ namespace demo
             studentControl.UpdateStudent(givenName, familyName, id, groupID, title, campus, phone, email, category);
             student_list.ItemsSource = null;
             student_list.ItemsSource = studentControl.GetViewableList();
-            StudentManagement newWindow = new StudentManagement();
-            newWindow.student_list.ItemsSource = studentControl.GetViewableList();
-            newWindow.Show();
-            this.Close();
+            //StudentManagement newWindow = new StudentManagement();
+            //newWindow.student_list.ItemsSource = studentControl.GetViewableList();
+            //newWindow.Show();
+            //this.Close();
         }
     }
 }
