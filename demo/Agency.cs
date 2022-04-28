@@ -172,6 +172,7 @@ namespace demo
                 //cmd.Parameters.AddWithValue("email", student.Email);
                 //cmd.Parameters.AddWithValue("category", student.Category1);
                 cmd.ExecuteNonQuery();
+                
             }
 
             finally

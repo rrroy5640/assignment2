@@ -27,12 +27,15 @@ namespace demo
         {
             //Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
             Agency.AddStudent();
+            students = ListStudents();
         }
 
         public void DeleteStudent(int id)
         {
             //Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
             Agency.DeleteStudent(id);
+            students = ListStudents();
+
         }
 
         public List<Student> ListStudents()
@@ -45,6 +48,7 @@ namespace demo
         {
             Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
             Agency.UpdateStudent(student);
+            students = ListStudents();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,13 @@ namespace demo
     /// <summary>
     /// Interaction logic for StudentManagement.xaml
     /// </summary>
-    public partial class StudentManagement : Window
+    public partial class StudentManagement : Window, INotifyPropertyChanged
     {
         private StudentControl studentControl;
         private string STUDENT_LIST_KEY = "studentList";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public StudentManagement()
         {
             InitializeComponent();
@@ -47,7 +51,15 @@ namespace demo
         private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
             studentControl.AddStudent();
-            InitializeComponent();
+            student_list.ItemsSource = null;
+            //student_list.ItemsSource = studentControl.GetViewableList();
+            //StudentManagement newWindow = new StudentManagement();
+            //newWindow.student_list.ItemsSource = studentControl.GetViewableList();
+            //newWindow.Show();
+            StudentControl newStudentControl = new StudentControl();
+            newStudentControl = (StudentControl)(Application.Current.FindResource(STUDENT_LIST_KEY) as ObjectDataProvider).ObjectInstance;
+            student_list.ItemsSource = newStudentControl.GetViewableList();
+            //this.Close();
         }
 
         private void DeleteStudent_Click(object sender, RoutedEventArgs e)
@@ -55,7 +67,12 @@ namespace demo
             int id;
             id = (int)int.Parse(IDText.Text);
             studentControl.DeleteStudent(id);
-            InitializeComponent();
+            student_list.ItemsSource = null;
+            student_list.ItemsSource = studentControl.GetViewableList();
+            StudentManagement newWindow = new StudentManagement();
+            newWindow.student_list.ItemsSource = studentControl.GetViewableList();
+            newWindow.Show();
+            this.Close();
         }
 
         private void UpdateStudent_Click(object sender, RoutedEventArgs e)
@@ -70,6 +87,12 @@ namespace demo
             string email = EmailText.Text;
             string category = CategoryText.Text;
             studentControl.UpdateStudent(givenName, familyName, id, groupID, title, campus, phone, email, category);
+            student_list.ItemsSource = null;
+            student_list.ItemsSource = studentControl.GetViewableList();
+            StudentManagement newWindow = new StudentManagement();
+            newWindow.student_list.ItemsSource = studentControl.GetViewableList();
+            newWindow.Show();
+            this.Close();
         }
     }
 }
