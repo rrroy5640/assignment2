@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace demo
+namespace Assignment2
 {
     //this is the controller class for student management
     internal class StudentControl :StudentControlInterface

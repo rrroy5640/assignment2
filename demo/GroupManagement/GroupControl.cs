@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace demo
+namespace Assignment2
 {
     internal class GroupControl 
     {

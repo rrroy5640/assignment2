@@ -5,11 +5,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using demo;
+using Assignment2;
 using MySql.Data.MySqlClient;
 
 
-namespace demo
+namespace Assignment2
 {
     internal class ClassControl
     {

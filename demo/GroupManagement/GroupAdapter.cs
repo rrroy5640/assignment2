@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
 
-namespace demo
+namespace Assignment2
 {
     //this is the adapter class for Group
     internal class GroupAdapter

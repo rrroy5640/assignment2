@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace demo
+namespace Assignment2
 {
     /// <summary>
     /// Interaction logic for ClassManagement.xaml

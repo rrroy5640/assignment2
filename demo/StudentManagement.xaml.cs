@@ -12,9 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using demo;
+using Assignment2;
 
-namespace demo
+namespace Assignment2
 {
     /// <summary>
     /// Interaction logic for StudentManagement.xaml

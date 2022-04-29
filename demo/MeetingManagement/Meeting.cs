@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace demo
+namespace Assignment2
 {
     public class Meeting
     {

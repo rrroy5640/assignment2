@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace demo
+namespace Assignment2
 {
     //this is the entity class for student
     public class Student

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
 
-namespace demo
+namespace Assignment2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

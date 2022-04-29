@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace demo
+namespace Assignment2
 {
     //this is the adapter class for student management
     internal class StudentAdapter

@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 using MySql;
 using System.Collections.ObjectModel;
 
-namespace demo
+namespace Assignment2
 {
     //this is the adapter class for student
     internal class Agency

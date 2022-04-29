@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace demo
+namespace Assignment2
 {
     internal class MeetingControl : MeetingControlInterface
     {

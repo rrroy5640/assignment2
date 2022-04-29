@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
-namespace demo
+namespace Assignment2
 {
     internal interface GroupControlInterface
     {
