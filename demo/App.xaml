@@ -4,12 +4,7 @@
              xmlns:local="clr-namespace:demo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <local:GroupControl x:Key="groupControl"></local:GroupControl>
         <local:StudentControl x:Key="studentControl"></local:StudentControl>
-        <ObjectDataProvider x:Key="groupList"
-                            ObjectInstance="{StaticResource groupControl}"
-                            MethodName="GetViewableList">
-        </ObjectDataProvider>
         <ObjectDataProvider x:Key="studentList"
                             ObjectInstance="{StaticResource studentControl}"
                             MethodName="GetViewableList"></ObjectDataProvider>

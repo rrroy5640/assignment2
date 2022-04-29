@@ -24,7 +24,6 @@ namespace demo
         private StudentControl studentControl;
         private string STUDENT_LIST_KEY = "studentList";
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public StudentManagement()
         {

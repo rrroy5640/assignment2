@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace demo
 {
     //this is the adapter class for student
-    internal class Agency
+    internal class StudentAdapter
     {
         private const string db = "gmis";
         private const string user = "kit206g4";
@@ -97,9 +98,9 @@ namespace demo
         public static List<Student> ListStudent()
         {
             List<Student> students = new List<Student>();
+            List<Student> orderedStudents = new List<Student>();
             MySqlConnection conn = GetConnection();
             MySqlDataReader rdr = null;
-
 
 
             try
@@ -127,7 +128,9 @@ namespace demo
                 if (conn != null)
                     conn.Close();
             }
-            return students;
+            var ordered = from Student e in students orderby e.FirstName select e; //order student list by linq
+            orderedStudents = new List<Student>(ordered);
+            return orderedStudents;
         }
 
         //public static void AddGroup (Group group)
@@ -171,10 +174,12 @@ namespace demo
                 //cmd.Parameters.AddWithValue("phone", student.PhoneNumber);
                 //cmd.Parameters.AddWithValue("email", student.Email);
                 //cmd.Parameters.AddWithValue("category", student.Category1);
-                cmd.ExecuteNonQuery();
-                
+                cmd.ExecuteNonQuery();            
             }
-
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception occured, details:\n" + e);
+            }
             finally
             {
                 conn.Close();
@@ -200,6 +205,10 @@ namespace demo
                 cmd.Parameters.AddWithValue("email", student.Email);
                 cmd.Parameters.AddWithValue("category", student.Category1);
                 cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                ReportSqlError(e);
             }
   
             finally
@@ -261,12 +270,24 @@ namespace demo
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.ExecuteNonQuery();
             }
-
-
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception occured, details:\n" + e);
+            }
             finally
             {
                 conn.Close();
             }
+        }
+
+        private static void ReportSqlError(Exception e)
+        {
+            MessageBox.Show("An SQL related exception occured.\n" +
+                "This exception might be caused because null values are entered in some textboxes, or values are not legal.\n"+
+                "groupID should be valid existing int, check what id are available in group management.\n" +
+                "campus should be Launceston or Hobart, category should be Masters or Bachelors, or just leave them empty\n" +
+                "exception details:\n" +
+                e);
         }
 
     }

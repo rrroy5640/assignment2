@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace demo
 {
@@ -13,7 +14,7 @@ namespace demo
 
         public StudentControl()
         {
-            students = Agency.ListStudent();
+            students = StudentAdapter.ListStudent();
             viewableStudents = new ObservableCollection<Student>(students);
         }
 
@@ -26,7 +27,7 @@ namespace demo
         public void AddStudent()
         {
             //Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
-            Agency.AddStudent();
+            StudentAdapter.AddStudent();
             students = ListStudents();
             viewableStudents = new ObservableCollection<Student>(students);
         }
@@ -34,21 +35,72 @@ namespace demo
         public void DeleteStudent(int id)
         {
             //Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
-            Agency.DeleteStudent(id);
+            StudentAdapter.DeleteStudent(id);
             students = ListStudents();
             viewableStudents = new ObservableCollection<Student>(students);
         }
 
         public List<Student> ListStudents()
         {
-            return Agency.ListStudent();
+            return StudentAdapter.ListStudent();
         }
 
 
         public void UpdateStudent(string givenName, string familyName, int id, int groupID, string title, string campus, string phone, string email, string category)
         {
+
+            if (givenName == string.Empty)
+            {
+                givenName = " ";
+            }
+            if (familyName == string.Empty)
+            {
+                familyName = " ";
+            }
+            //int groupID cannot be set to null, so there will be exception if you enter nothing for groupID when updating student info
+            //it has to have a value that matches the existing foreign key values which were not implemented
+            //if (groupID == null)
+            //{
+            //    groupID = 0;
+            //}
+            if (title == string.Empty)
+            {
+                title = " ";
+            }    
+            if (campus != "Hobart" || campus != "Launceston")
+            {
+                if (campus == string.Empty)
+                {
+                    campus = "";
+                }
+                else
+                {
+                    MessageBox.Show("campus should be Hobart or Launceston");
+                }
+            }
+            if (category != "Bachelors" || category != "Masters")
+            {
+                if (category == string.Empty)
+                {
+                    category = "";
+                }
+                else
+                {
+                    MessageBox.Show("category should be Masters or Bachelors");
+
+                }
+            }
+            
+            if (phone == string.Empty)
+            {
+                phone = " ";
+            }
+            if ( email == string.Empty)
+            {
+                email = " ";
+            }
             Student student = new Student(givenName, familyName, id, groupID, title, phone, email, campus, category);
-            Agency.UpdateStudent(student);
+            StudentAdapter.UpdateStudent(student);
             students = ListStudents();
             viewableStudents = new ObservableCollection<Student>(students);
         }
