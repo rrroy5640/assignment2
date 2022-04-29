@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace demo
 {
-
+    //this is the entity class for student
     public class Student
     {
 
@@ -20,7 +20,7 @@ namespace demo
         private string email;
         private string campus;
         private string category;
-        private System.Windows.Media.ImageSource photo;
+        //private System.Windows.Media.ImageSource photo;
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }

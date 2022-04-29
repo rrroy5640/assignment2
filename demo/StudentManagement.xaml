@@ -48,6 +48,7 @@
         <Button x:Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="377,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="AddStudent_Click"/>
         <Button x:Name="UpdateStudent" Content="Update Info" HorizontalAlignment="Left" Margin="631,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="UpdateStudent_Click"/>
         <Button x:Name="DeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Margin="877,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="DeleteStudent_Click"/>
+        <Button x:Name="Exit" Content="EXIT" HorizontalAlignment="Left" Margin="877,350,0,0" VerticalAlignment="Top" Height="50" Width="154" FontSize="18" Click="Exit_Click"/>
 
     </Grid>
 </Window>

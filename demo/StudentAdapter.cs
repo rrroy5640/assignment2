@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace demo
 {
-    //this is the adapter class for student
+    //this is the adapter class for student management
     internal class StudentAdapter
     {
         private const string db = "gmis";
@@ -34,38 +34,6 @@ namespace demo
             return conn;
         }
 
-        //public static List<Group> ListGroup()
-        //{
-        //    List<Group> groups = new List<Group>();
-        //    MySqlConnection conn = GetConnection();
-        //    MySqlDataReader rdr = null;
-
-        //    try
-        //    {
-        //        conn.Open();
-        //        MySqlCommand cmd = new MySqlCommand("select group_id, group_name from studentGroup", conn);
-        //        rdr = cmd.ExecuteReader();
-
-        //        while (rdr.Read())
-        //        {
-        //            groups.Add(new Group { GroupName = rdr.GetString(1), GroupID = rdr.GetInt32(0) });
-        //        }
-        //    }
-
-        //    catch (MySqlException e)
-        //    {
-        //        throw e;
-        //    }
-        //    finally
-        //    {
-        //        if (rdr != null)
-        //        rdr.Close();
-        //        if (conn != null)
-        //        conn.Close();
-        //    }
-        //    return groups;
-        //}
-
         //this method is to return a empty string if the reader reads a null value from database
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
@@ -73,19 +41,6 @@ namespace demo
                 return reader.GetString(colIndex);
             return string.Empty;
         }
-
-        //public static string SafeGetStringCampus(MySqlDataReader reader, int colIndex)
-        //{
-        //    if (!reader.IsDBNull(colIndex))
-        //        return reader.GetString(colIndex);
-        //    return "nowhere";
-        //}
-        //public static string SafeGetStringCategory(MySqlDataReader reader, int colIndex)
-        //{
-        //    if (!reader.IsDBNull(colIndex))
-        //        return reader.GetString(colIndex);
-        //    return "nothing";
-        //}
 
         //this method is to return 0 if the reader reads a null value from database
         public static int SafeGetInt(MySqlDataReader reader, int colIndex)
@@ -132,26 +87,6 @@ namespace demo
             orderedStudents = new List<Student>(ordered);
             return orderedStudents;
         }
-
-        //public static void AddGroup (Group group)
-        //{
-        //    MySqlConnection conn = GetConnection();
-
-        //    try
-        //    {
-        //        conn.Open();
-        //        MySqlCommand cmd = new MySqlCommand("insert into studentGroup (group_id, group_name) values (?id, ?name)", conn);
-        //        cmd.Parameters.AddWithValue("id", group.GroupID);
-        //        cmd.Parameters.AddWithValue("name", group.GroupName);
-        //        cmd.ExecuteNonQuery();
-        //    }
-            
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
-
 
         //this method is to add a empty student object in database with a random id
         public static void AddStudent()
@@ -216,47 +151,6 @@ namespace demo
                 conn.Close();
             }
         }
-
-        //public static void UpdateGroup(Group group)
-        //{
-        //    MySqlConnection conn = GetConnection();
-
-        //    try
-        //    {
-        //        conn.Open();
-        //        MySqlCommand cmd = new MySqlCommand("update studentGroup set group_name = ?name where group_id = ?id", conn);
-        //        cmd.Parameters.AddWithValue("id", group.GroupID);
-        //        cmd.Parameters.AddWithValue("name", group.GroupName);
-        //        cmd.ExecuteNonQuery();
-
-        //    }
-
-
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
-
-        //public static void DeleteGroup (Group group)
-        //{
-        //    MySqlConnection conn = GetConnection();
-
-        //    try
-        //    {
-        //        conn.Open();
-        //        MySqlCommand cmd = new MySqlCommand("delete from studentGroup where group_id = ?id", conn);
-        //        cmd.Parameters.AddWithValue("id", group.GroupID);
-        //        cmd.ExecuteNonQuery();
-
-        //    }
-            
-
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
 
         //this method is to delete a student object in database with assigned id
         public static void DeleteStudent(int id)

@@ -4,6 +4,7 @@ using System.Windows;
 
 namespace demo
 {
+    //this is the controller class for student management
     internal class StudentControl :StudentControlInterface
     {
         private List<Student> students;
