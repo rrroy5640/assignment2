@@ -32,5 +32,11 @@ namespace demo
             StudentManagement studentManagement = new StudentManagement();
             studentManagement.Show();
         }
+
+        private void MeetingManagement_Click(object sender, RoutedEventArgs e)
+        {
+            MeetingManagement meetingManagement = new MeetingManagement();
+            meetingManagement.Show();
+        }
     }
 }

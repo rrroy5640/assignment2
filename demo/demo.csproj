@@ -104,8 +104,12 @@
     <Compile Include="GroupControl.cs" />
     <Compile Include="GroupControlInterface.cs" />
     <Compile Include="Meeting.cs" />
+    <Compile Include="MeetingControl.cs" />
     <Compile Include="MeetingControlInterface.cs" />
     <Compile Include="Agency.cs" />
+    <Compile Include="MeetingManagement.xaml.cs">
+      <DependentUpon>MeetingManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +131,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MeetingManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

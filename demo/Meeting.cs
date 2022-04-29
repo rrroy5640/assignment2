@@ -10,12 +10,12 @@ namespace demo
     {
         private int meetingID;
         private int groupID;
-        private Day day;
+        private string day;
         private DateTime startTime;
         private DateTime endTime;
         private int room;
 
-        public Meeting(int meetingID, int groupID, Day day, DateTime startTime, DateTime endTime, int room)
+        public Meeting(int meetingID, int groupID, string day, DateTime startTime, DateTime endTime, int room)
         {
             this.MeetingID = meetingID;
             this.GroupID = groupID;
@@ -27,9 +27,9 @@ namespace demo
 
         public int MeetingID { get => meetingID; set => meetingID = value; }
         public int GroupID { get => groupID; set => groupID = value; }
+        public string Day { get => day; set => day = value; }
         public DateTime StartTime { get => startTime; set => startTime = value; }
         public DateTime EndTime { get => endTime; set => endTime = value; }
         public int Room { get => room; set => room = value; }
-        internal Day Day { get => day; set => day = value; }
     }
 }

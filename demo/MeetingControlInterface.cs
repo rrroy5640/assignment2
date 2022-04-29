@@ -8,9 +8,9 @@ namespace demo
 {
     internal interface MeetingControlInterface
     {
-        void addMeeting();
-        void deleteMeeting();
-        void updateMeeting();
-        List<Meeting> listMeeting();
+        void AddMeeting();
+        void DeleteMeeting(int id);
+        void UpdateMeeting(int meetingID, int groupID, string day, DateTime start, DateTime end, int room);
+        List<Meeting> ListMeeting();
     }
 }

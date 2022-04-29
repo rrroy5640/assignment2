@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using MySql;
 using System.Collections.ObjectModel;
 
 namespace demo
@@ -27,8 +28,8 @@ namespace demo
         {
             if (conn == null)
             {
-                string connectionString = String.Format("Database={0};Data Source={1};User Id={2};Password={3}", db, server, user, pass);
-                conn = new MySqlConnection(connectionString);
+                string connectionString = String.Format("Database={0};Data Source={1};User Id={2};Password={3};convert zero datetime=True", db, server, user, pass);
+                conn = new MySqlConnection(connectionString); 
             }
             return conn;
         }
@@ -69,9 +70,25 @@ namespace demo
         public static string SafeGetString(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))
+            {
                 return reader.GetString(colIndex);
+            }
             return string.Empty;
         }
+
+        public static DateTime SafeGetDateTime(MySqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+            {
+                //MySql.Data.Types.MySqlDateTime sqlDateTime = reader.GetMySqlDateTime(colIndex);
+                //DateTime time = Convert.ToDateTime(sqlDateTime);
+                //return time;
+                return reader.GetDateTime(colIndex);
+
+            }
+            return DateTime.Now;
+        }
+
 
         //public static string SafeGetStringCampus(MySqlDataReader reader, int colIndex)
         //{
@@ -90,7 +107,9 @@ namespace demo
         public static int SafeGetInt(MySqlDataReader reader, int colIndex)
         {
             if (!reader.IsDBNull(colIndex))
+            {
                 return reader.GetInt32(colIndex);
+            }
             return 0;
         }
 
@@ -128,6 +147,43 @@ namespace demo
                     conn.Close();
             }
             return students;
+        }
+
+        public static List<Meeting> ListMeeting()
+        {
+            List<Meeting> meetings = new List<Meeting>();
+            MySqlConnection conn = GetConnection();
+            MySqlDataReader reader = null;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand getMeetings = new MySqlCommand("select meeting_id, group_id, day, start, end, room from meeting", conn);
+                reader = getMeetings.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    meetings.Add(new Meeting(SafeGetInt(reader, 0), SafeGetInt(reader, 1), SafeGetString(reader, 2), SafeGetDateTime(reader, 3),
+                        SafeGetDateTime(reader, 4), SafeGetInt(reader, 5)));
+                }
+            }
+
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return meetings;
         }
 
         //public static void AddGroup (Group group)
@@ -181,6 +237,28 @@ namespace demo
             }
         }
 
+        public static void AddMeeting()
+        {
+            MySqlConnection conn = GetConnection();
+            Random rd = new Random();
+            int id = rd.Next(100000, 999999);
+            DateTime time = DateTime.Now;
+
+            try
+            {
+                conn.Open();
+                MySqlCommand addMeeting = new MySqlCommand("insert into meeting (meeting_id, group_id, day, start, end, room)" +
+                    "values (?id, null, '', ?time, ?time, '')", conn);
+                addMeeting.Parameters.AddWithValue("id", id);
+                addMeeting.Parameters.AddWithValue("time", time);
+                addMeeting.ExecuteNonQuery();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         //this method is to update the student info where id is assigned
         public static void UpdateStudent (Student student)
         {
@@ -202,6 +280,29 @@ namespace demo
                 cmd.ExecuteNonQuery();
             }
   
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public static void UpdateMeeting(Meeting meeting)
+        {
+            MySqlConnection conn = GetConnection();
+
+            try
+            {
+                conn.Open();
+                MySqlCommand updateMeeting = new MySqlCommand("update meeting set meeting_id = ?meeting_id, group_id = ?group_id, day = ?day, start = ?start, end = ?end, room = ?room where meeting_id = ?id", conn);
+                updateMeeting.Parameters.AddWithValue("meeting_id", meeting.MeetingID);
+                updateMeeting.Parameters.AddWithValue("group_id", meeting.GroupID);
+                updateMeeting.Parameters.AddWithValue("day", meeting.Day);
+                updateMeeting.Parameters.AddWithValue("start", meeting.StartTime);
+                updateMeeting.Parameters.AddWithValue("end", meeting.EndTime);
+                updateMeeting.Parameters.AddWithValue("room", meeting.Room);
+
+                updateMeeting.ExecuteNonQuery();
+            }
             finally
             {
                 conn.Close();
@@ -263,6 +364,23 @@ namespace demo
             }
 
 
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public static void DeleteMeeting(int id)
+        {
+            MySqlConnection conn = GetConnection();
+            
+            try
+            {
+                conn.Open();
+                MySqlCommand deleteMeeting = new MySqlCommand("delete from meeting where meeting_id = ?id", conn);
+                deleteMeeting.Parameters.AddWithValue("id", id);
+                deleteMeeting.ExecuteNonQuery();
+            }
             finally
             {
                 conn.Close();

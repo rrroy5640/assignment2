@@ -6,12 +6,15 @@
     <Application.Resources>
         <local:GroupControl x:Key="groupControl"></local:GroupControl>
         <local:StudentControl x:Key="studentControl"></local:StudentControl>
+        <local:MeetingControl x:Key="meetingControl"></local:MeetingControl>
         <ObjectDataProvider x:Key="groupList"
                             ObjectInstance="{StaticResource groupControl}"
-                            MethodName="GetViewableList">
-        </ObjectDataProvider>
+                            MethodName="GetViewableList"></ObjectDataProvider>
         <ObjectDataProvider x:Key="studentList"
                             ObjectInstance="{StaticResource studentControl}"
+                            MethodName="GetViewableList"></ObjectDataProvider>
+        <ObjectDataProvider x:Key="meetingList"
+                            ObjectInstance="{StaticResource meetingControl}"
                             MethodName="GetViewableList"></ObjectDataProvider>
     </Application.Resources>
 </Application>
