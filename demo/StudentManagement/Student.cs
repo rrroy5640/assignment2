@@ -10,7 +10,6 @@ namespace demo
     //this is the entity class for student
     public class Student
     {
-
         private string firstName;
         private string lastName;
         private int id;

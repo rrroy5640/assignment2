@@ -173,15 +173,15 @@ namespace demo
                 conn.Close();
             }
         }
-
+        //
         private static void ReportSqlError(Exception e)
         {
             MessageBox.Show("An SQL related exception occured.\n" +
                 "This exception might be caused because null values are entered in some textboxes, or values are not legal.\n"+
                 "groupID should be valid existing int, check what id are available in group management.\n" +
                 "campus should be Launceston or Hobart, category should be Masters or Bachelors, or just leave them empty\n" +
-                "exception details:\n" +
-                e);
+                "exception details:\n" 
+                + e);
         }
 
     }

@@ -98,13 +98,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="StudentAdapter.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="StudentControl.cs" />
-    <Compile Include="StudentControlInterface.cs" />
+    <Compile Include="ClassManagement.xaml.cs">
+      <DependentUpon>ClassManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ClassManagement\Class.cs" />
+    <Compile Include="ClassManagement\ClassAdapter.cs" />
+    <Compile Include="ClassManagement\ClassControl.cs" />
+    <Compile Include="ClassManagement\ClassControlInterface.cs" />
+    <Compile Include="GroupManagement.xaml.cs">
+      <DependentUpon>GroupManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupManagement\Group.cs" />
+    <Compile Include="GroupManagement\GroupAdapter.cs" />
+    <Compile Include="GroupManagement\GroupControl.cs" />
+    <Compile Include="GroupManagement\GroupControlInterface.cs" />
+    <Compile Include="MeetingManagement.xaml.cs">
+      <DependentUpon>MeetingManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MeetingManagement\Agency.cs" />
+    <Compile Include="MeetingManagement\Meeting.cs" />
+    <Compile Include="MeetingManagement\MeetingControl.cs" />
+    <Compile Include="MeetingManagement\MeetingControlInterface.cs" />
+    <Compile Include="StudentManagement\StudentAdapter.cs" />
+    <Compile Include="StudentManagement\Student.cs" />
+    <Compile Include="StudentManagement\StudentControl.cs" />
+    <Compile Include="StudentManagement\StudentControlInterface.cs" />
     <Compile Include="StudentManagement.xaml.cs">
       <DependentUpon>StudentManagement.xaml</DependentUpon>
     </Compile>
+    <Page Include="ClassManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GroupManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,6 +146,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MeetingManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StudentManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,5 +182,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

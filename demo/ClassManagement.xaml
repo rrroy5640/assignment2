@@ -1,0 +1,41 @@
+﻿<Window x:Class="demo.ClassManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:demo"
+        mc:Ignorable="d"
+        Title="Class Management" Height="600" Width="1200">
+    <Grid x:Name="grid1" Margin="0,0,0,0">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="CLASS MANAGEMENT INFORMATION SYSTEM" VerticalAlignment="Top" Height="60" Width="771" FontSize="36"/>
+        <ListBox x:Name="ClassList" ItemsSource="{Binding Source={StaticResource classList}}" SelectionChanged="class_list_SelectionChanged" Margin="0,100,891,10">
+        </ListBox>
+        <StackPanel x:Name="ClassIDPanel" HorizontalAlignment="Left" Height="58" Margin="373,100,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Class ID:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="ClassIdText" TextWrapping="Wrap" Text="{Binding Path=ClassID}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="GroupIDPanel" HorizontalAlignment="Left" Height="58" Margin="373,163,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Group ID:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="GroupIDText" TextWrapping="Wrap" Text="{Binding Path=LastName}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="DayPanel" HorizontalAlignment="Left" Height="58" Margin="373,221,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Day:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="DayText" TextWrapping="Wrap" Text="{Binding Path=Day}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="StartTimePanel" HorizontalAlignment="Left" Height="58" Margin="373,284,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Start Time:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="StartTimeText" TextWrapping="Wrap" Text="{Binding Path=StartTime}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="EndTimePanel" HorizontalAlignment="Left" Height="58" Margin="373,342,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="End Time:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="EndTimeText" TextWrapping="Wrap" Text="{Binding Path=EndTime}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="RoomPanel" HorizontalAlignment="Left" Height="58" Margin="723,100,0,0" VerticalAlignment="Top" Width="308" Orientation="Horizontal">
+            <Label Content="Room:" FontSize="18" VerticalAlignment="Center" Width="100"/>
+            <TextBox x:Name="RoomText" TextWrapping="Wrap" Text="{Binding Path=Room}" Width="180" FontSize="18" VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button x:Name="AddClass" Content="Add Class" HorizontalAlignment="Left" Margin="377,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="AddClass_Click"></Button>
+        <Button x:Name="DeleteClass" Content="Delete Class" HorizontalAlignment="Left" Margin="544,438,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" Click="DeleteClass_Click"/>
+
+    </Grid>
+</Window>
