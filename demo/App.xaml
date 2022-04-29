@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:demo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:ClassControl x:Key="classControl"></local:ClassControl>
+            <ObjectDataProvider x:Key="classList"
+                            ObjectInstance="{StaticResource classControl}"
+                            MethodName="GetViewableList">
+
+        </ObjectDataProvider>
     </Application.Resources>
-</Application>
+  </Application>

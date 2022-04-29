@@ -99,17 +99,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Class.cs" />
+    <Compile Include="ClassControl.cs" />
     <Compile Include="ClassControlInterface.cs" />
-    <Compile Include="Group.cs" />
-    <Compile Include="GroupControlInterface.cs" />
-    <Compile Include="Meeting.cs" />
-    <Compile Include="MeetingControlInterface.cs" />
-    <Compile Include="MySqlConnection.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="StudentControlInterface.cs" />
-    <Compile Include="StudentManagement.xaml.cs">
-      <DependentUpon>StudentManagement.xaml</DependentUpon>
+    <Compile Include="ClassManagement.xaml.cs">
+      <DependentUpon>ClassManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClassAdapter.cs" />
+    <Compile Include="Student.cs" />
+    <Page Include="ClassManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,10 +122,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StudentManagement.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

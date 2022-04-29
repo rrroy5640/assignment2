@@ -22,16 +22,15 @@ namespace demo
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private StudentManagement sm;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void STUDENT_MANAGEMENT_Click(object sender, RoutedEventArgs e)
+        private void ClassManagement_Click(object sender, RoutedEventArgs e)
         {
-            
+            ClassManagement classManagement = new ClassManagement();
+            classManagement.Show();
         }
     }
 }

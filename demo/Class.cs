@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace demo
 {
-    enum Day { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday}
+   
     internal class Class
-    {
-        private int classID;
-        private int groupID;
-        private Day day;
-        private DateTime startTime;
-        private DateTime endTime;
-        private int room;
+    {  
+        private int classID { get; set; }
+        private int groupID { get; set; }
+        private string day { get; set; }
+        private string startTime { get; set; }
+        private string endTime { get; set; }
+        private string room { get; set; }
 
-        public Class(int classID, int groupID, Day day, DateTime startTime, DateTime endTime, int room)
+        public Class(int classID, int groupID, string day, string startTime, string endTime, string room)
         {
             this.ClassID = classID;
             this.GroupID = groupID;
@@ -26,11 +26,22 @@ namespace demo
             this.Room = room;
         }
 
+        public Class()
+        {
+        }
+
+        public override string ToString()
+        {
+            return classID.ToString();
+        }
+
         public int ClassID { get => classID; set => classID = value; }
         public int GroupID { get => groupID; set => groupID = value; }
-        public DateTime StartTime { get => startTime; set => startTime = value; }
-        public DateTime EndTime { get => endTime; set => endTime = value; }
-        public int Room { get => room; set => room = value; }
-        internal Day Day { get => day; set => day = value; }
+        public string StartTime { get => startTime; set => startTime = value; }
+        public string EndTime { get => endTime; set => endTime = value; }
+        public string Room { get => room; set => room = value; }
+        public  string Day { get => day; set => day = value; }
     }
+
+    
 }

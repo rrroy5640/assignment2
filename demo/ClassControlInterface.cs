@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 namespace demo
 {
     internal interface ClassControlInterface
-    {
-        void addClass();
-        void deleteClass();
-        void updateClass();
-        List<Class> listClass();
+    { 
+        void AddClass();
+        void DeleteClass(int class_id);
+        List<Class> ListClassess();
     }
 }

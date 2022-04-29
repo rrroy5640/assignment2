@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 namespace demo
 {
-    internal class Student
+    public class Student
     {
-        public enum Campus { Hobart, Launceston};
-        public enum Category { Bachelor, Master};
 
         private string firstName;
         private string lastName;
         private int id;
-        private int groupId;
+        private int groupId = 0;
         private string title;
-        private int phoneNumber;
+        private string phoneNumber;
         private string email;
-        private Campus campus;
-        private Category category;
+        private string campus;
+        private string category;
+        private System.Windows.Media.ImageSource photo;
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public int Id { get => id; set => id = value; }
         public int GroupId { get => groupId; set => groupId = value; }
         public string Title { get => title; set => title = value; }
-        public int PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string Email { get => email; set => email = value; }
-        internal Campus Campus1 { get => campus; set => campus = value; }
-        internal Category Category1 { get => category; set => category = value; }
+        public string Campus1 { get => campus; set => campus = value; }
+        public string Category1 { get => category; set => category = value; }
 
-        public Student(string firstName, string lastName, int id, int groupId, string title, int phoneNumber, string email, Campus campus, Category category)
+
+        public Student(string firstName, string lastName, int id, int groupId, string title, string phoneNumber, string email, string campus, string category)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -42,6 +42,11 @@ namespace demo
             this.email = email;
             this.campus = campus;
             this.category = category;
+        }
+
+        public override string ToString()
+        {
+            return firstName + " " + lastName;
         }
     }
 }
