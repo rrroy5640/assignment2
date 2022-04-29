@@ -19,7 +19,7 @@ namespace demo
     /// <summary>
     /// Interaction logic for StudentManagement.xaml
     /// </summary>
-    public partial class StudentManagement : Window, INotifyPropertyChanged
+    public partial class StudentManagement : Window
     {
         private StudentControl studentControl;
         private string STUDENT_LIST_KEY = "studentList";
